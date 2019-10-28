@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Generator</title>
+    <!-- <link rel="stylesheet" href="assets/css/normalize.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <h1>Passwod Generator</h1>
+
+    <div class="container">
+        <div class="row">
+            <p>Generate a Password<p>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="pswd-box">
+                Write Password Here
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+
+                <button onclick=generatePassword() type="button" class="btn btn-primary btn-lg">
+                    Generate Password</button>
+            </div>
+            <div class="col-xs-12">
+                <button type="button" class="btn btn-secondary btn-lg">
+                    Copy to Clipboard</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        var pwdChoices = {
+            pwdLength: 0,
+            pwdNumber: true,
+            pwdSpecial: true,
+            pwdUpper: true,
+            pwdLower: true,
+        }
+
+        var pwdCharcters = "";
+        lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        numeric = "0123456789";
+        special = "!@#$%^&*(){,}[]=<>/.";
+        yourPassword = "";
+
+
+        function generatePassword() {
+            var lengthPrompt = parseInt(prompt("How many characters"));
+
+            if (lengthPrompt > 7 && lengthPrompt < 129) {
+                alert("Your length is " + lengthPrompt);
+                pwdChoices.pwdLength = lengthPrompt;
+            }
+            else {
+                alert("not valid enter between 8 & 20");
+                generatePassword();
+            }
+
+            var numericChoice = confirm("Want numbers?")
+
+            if (numericChoice === true) {
+
+                pwdChoices.pwdNumber = true;
+                pwdCharcters += numeric;
+            } else {
+                pwdChoices.pwdNumber = false;
+            }
+
+            var upperChoice = confirm("Want UPPERCASE?");
+
+            if (upperChoice === true) {
+                pwdChoices.pwdUpper = true;
+                pwdCharcters += upperCase;
+            } else {
+                pwdChoices.pwdUpper = false;
+            }
+
+            var lowerChoice = confirm("Want lowercase?");
+            if (lowerChoice === true) {
+                pwdChoices.pwdLower = true;
+                pwdCharcters += lowerCase;
+            } else {
+                pwdChoices.pwdLower = false;
+            }
+
+            var specialChoice = confirm("Want Characters?");
+            if (specialChoice === true) {
+
+                pwdChoices.pwdSpecial = true;
+                pwdCharcters += special;
+            } else {
+                pwdChoices.pwdNumber = false;
+            }
+
+            for (var i = 0; i < pwdChoices.pwdLength; i++) {
+                var getChar = pwdCharcters[Math.floor(Math.random() * pwdCharcters.length)];
+                yourPassword += getChar;
+            }
+
+            function myFunction() {
+                document.getElementById("pswd-box").innerHTML = yourPassword;
+            }
+            console.log(yourPassword);
+            console.log(pwdChoices.pwdLength);
+            console.log(pwdCharcters);
+
+
+        }
+
+
+    </script>

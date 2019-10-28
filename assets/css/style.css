@@ -1,0 +1,40 @@
+/*  CSS for Password Generator */
+h1{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+p{
+    color: indigo;
+    font-size: 32px;
+}
+
+.container{
+    height: 500px;
+    width: 1000px;
+    border: solid lightgrey 4px;
+    padding: 40px;
+    margin-top: 10px;
+   
+}
+
+.pswd-box{
+    font-size: 30px;
+    text-align: center;
+    border: dotted grey;
+    width: 900px;
+    height: 200px;
+    padding: 20px;
+}
+button{
+    margin: 120px;
+    /* padding: 20px; */
+    margin-top: 10px;
+}
+.btn-primary{
+    background-color: #750b0b;
+}
+.btn-secondary{
+    background-color: rgb(155, 152, 152);
+    margin-right: 40px;
+}
