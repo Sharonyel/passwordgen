@@ -15,28 +15,24 @@
 
 <body>
 
-    <h1>Passwod Generator</h1>
+    <h1 class="text-center text-muted">Password Generator</h1>
 
     <div class="container">
         <div class="row">
-            <p>Generate a Password<p>
-
+            <h2>Generate a Password<h2>
         </div>
         <hr>
         <div class="row">
-            <div class="pswd-box">
-                Write Password Here
-            </div>
+            <textarea class="content-box" id="pswd-box">Your Secure Passwod</textarea>
         </div>
         <hr>
         <div class="row">
             <div class="col-xs-12">
-
-                <button onclick=generatePassword() type="button" class="btn btn-primary btn-lg">
+                <button onclick="generatePassword()" type="button" class="btn btn-primary btn-lg">
                     Generate Password</button>
             </div>
             <div class="col-xs-12">
-                <button type="button" class="btn btn-secondary btn-lg">
+                <button onclick="clipboard()" type="button" class="btn btn-secondary  ml-auto btn-lg">
                     Copy to Clipboard</button>
             </div>
 
@@ -44,7 +40,7 @@
 
     </div>
 
-
+    <!-- <input id="cpstr" type="text"> -->
 
     <script>
 
@@ -57,38 +53,41 @@
         }
 
         var pwdCharcters = "";
-        lowerCase = "abcdefghijklmnopqrstuvwxyz";
-        upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        numeric = "0123456789";
-        special = "!@#$%^&*(){,}[]=<>/.";
-        yourPassword = "";
+            lowerCase = "abcdefghijklmnopqrstuvwxyz";
+            upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            numeric = "0123456789";
+            special = "!@#$%^&*(){,}[]=<>/.";
+            yourPassword = "";
+       
+        var typeSelected = 0;
 
 
         function generatePassword() {
-            var lengthPrompt = parseInt(prompt("How many characters"));
+            var lengthChoice = parseInt(prompt("How many characters"));
 
-            if (lengthPrompt > 7 && lengthPrompt < 129) {
-                alert("Your length is " + lengthPrompt);
-                pwdChoices.pwdLength = lengthPrompt;
+            if (lengthChoice > 7 && lengthChoice < 129) {
+                pwdChoices.pwdLength = lengthChoice;
             }
             else {
-                alert("not valid enter between 8 & 20");
+                alert("That is not valid. Pleae enter a number between 8 & 20");
                 generatePassword();
             }
 
             var numericChoice = confirm("Want numbers?")
 
             if (numericChoice === true) {
-
+                typeSelected = typeSelected + 1;
                 pwdChoices.pwdNumber = true;
                 pwdCharcters += numeric;
             } else {
                 pwdChoices.pwdNumber = false;
+                // typeSelected = false;
             }
 
             var upperChoice = confirm("Want UPPERCASE?");
 
             if (upperChoice === true) {
+                typeSelected = typeSelected + 1;
                 pwdChoices.pwdUpper = true;
                 pwdCharcters += upperCase;
             } else {
@@ -97,6 +96,7 @@
 
             var lowerChoice = confirm("Want lowercase?");
             if (lowerChoice === true) {
+                typeSelected = typeSelected + 1;
                 pwdChoices.pwdLower = true;
                 pwdCharcters += lowerCase;
             } else {
@@ -105,27 +105,38 @@
 
             var specialChoice = confirm("Want Characters?");
             if (specialChoice === true) {
-
+                typeSelected = typeSelected + 1;
                 pwdChoices.pwdSpecial = true;
                 pwdCharcters += special;
             } else {
                 pwdChoices.pwdNumber = false;
             }
 
+            if (typeSelected === 0) {
+                alert("You must select at least one type");
+                typeSelected = 0;
+                generatePassword();
+            }
+           
+
             for (var i = 0; i < pwdChoices.pwdLength; i++) {
                 var getChar = pwdCharcters[Math.floor(Math.random() * pwdCharcters.length)];
                 yourPassword += getChar;
             }
 
-            function myFunction() {
-                document.getElementById("pswd-box").innerHTML = yourPassword;
-            }
-            console.log(yourPassword);
-            console.log(pwdChoices.pwdLength);
-            console.log(pwdCharcters);
-
-
+            document.getElementById("pswd-box").innerHTML = yourPassword;
+        
         }
+
+        function clipboard() {
+             var copyText = document.getElementById('pswd-box');
+                console.log("copy " + copyText);
+                console.log(yourPassword);
+                copyText.select();
+                copyText.setSelectionRange(0, 99999);
+                document.execCommand("copy");
+                alert("Copied the text: " + yourPassword);
+            }
 
 
     </script>
