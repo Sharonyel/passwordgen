@@ -27,20 +27,21 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-xs-12">
-                <button onclick="generatePassword()" type="button" class="btn btn-primary btn-lg">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-">
+                <button onclick="generatePassword()" type="button" class="btn btn-info bg-danger d-inline">
                     Generate Password</button>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2"></div>
+
             </div>
-            <div class="col-xs-12">
-                <button onclick="clipboard()" type="button" class="btn btn-secondary  ml-auto btn-lg">
+            <div class="col-sm-4">
+                <button onclick="clipboard()" type="button" class="btn btn-info bg-secondary d-inline float-right">
                     Copy to Clipboard</button>
             </div>
 
         </div>
-
     </div>
-
-    <!-- <input id="cpstr" type="text"> -->
 
     <script>
 
@@ -52,7 +53,9 @@
             pwdLower: true,
         }
 
-        var pwdCharcters = "";
+        function generatePassword() {
+            
+            var pwdCharcters = "";
             lowerCase = "abcdefghijklmnopqrstuvwxyz";
             upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             numeric = "0123456789";
@@ -61,9 +64,7 @@
        
         var typeSelected = 0;
 
-
-        function generatePassword() {
-            var lengthChoice = parseInt(prompt("How many characters"));
+       var lengthChoice = parseInt(prompt("How many characters"));
 
             if (lengthChoice > 7 && lengthChoice < 129) {
                 pwdChoices.pwdLength = lengthChoice;
@@ -136,7 +137,7 @@
                 copyText.setSelectionRange(0, 99999);
                 document.execCommand("copy");
                 alert("Copied the text: " + yourPassword);
+                yourPassword = "";
             }
-
 
     </script>

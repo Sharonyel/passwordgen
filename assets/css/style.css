@@ -9,13 +9,13 @@ h1{
     padding: 10px;
 }
 h2{
-    font-size: 32px;
+    font-size: 30px;
 }
 
 .container{
     height: 500px;
-    width: 1000px;
-    border: solid lightgrey 2px;
+    width: 800px;
+    border: solid  lightgrey 2px;
     padding: 40px;
     margin-top: 10px;
     /* background-color: #b8b5b5; */
@@ -23,24 +23,18 @@ h2{
 }
 
 .content-box{
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     border: dashed grey;
-    width: 900px;
+    width: 700px;
     height: 200px;
     padding: 20px;
 }
-button{
-    margin: 120px;
-    margin-top: 10px;
-    border: none;
-}
-.btn-primary{
+.bg-danger{
     background-color: #750b0b;
 
 }
 .btn-secondary{
     background-color: rgb(155, 152, 152);
-    margin-right: 40px;
     
 }
