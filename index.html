@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Password Generator</title>
-    <!-- <link rel="stylesheet" href="assets/css/normalize.css"> -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -23,15 +23,14 @@
         </div>
         <hr>
         <div class="row">
-            <textarea class="content-box" id="pswd-box">Your Secure Passwod</textarea>
+            <textarea class="content-box" id="pswd-box">Your Secure Password</textarea>
         </div>
         <hr>
         <div class="row">
             <div class="col-sm-2"></div>
-            <div class="col-sm-">
+            <div class="col-sm-4">
                 <button onclick="generatePassword()" type="button" class="btn btn-info bg-danger d-inline">
                     Generate Password</button>
-                    <div class="col-sm-2"></div>
                     <div class="col-sm-2"></div>
 
             </div>
@@ -39,6 +38,7 @@
                 <button onclick="clipboard()" type="button" class="btn btn-info bg-secondary d-inline float-right">
                     Copy to Clipboard</button>
             </div>
+            <div class="col-sm-2"></div>
 
         </div>
     </div>
@@ -62,30 +62,32 @@
             special = "!@#$%^&*(){,}[]=<>/.";
             yourPassword = "";
        
-        var typeSelected = 0;
+    var typeSelected = 0;
+        
 
-       var lengthChoice = parseInt(prompt("How many characters"));
+       var lengthChoice = parseInt(prompt("Enter the Character Length"));
 
             if (lengthChoice > 7 && lengthChoice < 129) {
                 pwdChoices.pwdLength = lengthChoice;
             }
             else {
-                alert("That is not valid. Pleae enter a number between 8 & 20");
-                generatePassword();
+                alert("That is not valid. Pleae enter a number between 8 & 128");
+                return;
             }
 
-            var numericChoice = confirm("Want numbers?")
+         var numericChoice = confirm("Press OK if you would like Numbers");
 
             if (numericChoice === true) {
                 typeSelected = typeSelected + 1;
                 pwdChoices.pwdNumber = true;
+                // pwdCharcters = pwdCharacters + numeric;
                 pwdCharcters += numeric;
+
             } else {
                 pwdChoices.pwdNumber = false;
-                // typeSelected = false;
             }
 
-            var upperChoice = confirm("Want UPPERCASE?");
+            var upperChoice = confirm("Press OK if you would like upper case letters");
 
             if (upperChoice === true) {
                 typeSelected = typeSelected + 1;
@@ -95,7 +97,7 @@
                 pwdChoices.pwdUpper = false;
             }
 
-            var lowerChoice = confirm("Want lowercase?");
+            var lowerChoice = confirm("Press OK if you would like lower case letters");
             if (lowerChoice === true) {
                 typeSelected = typeSelected + 1;
                 pwdChoices.pwdLower = true;
@@ -104,19 +106,19 @@
                 pwdChoices.pwdLower = false;
             }
 
-            var specialChoice = confirm("Want Characters?");
+            var specialChoice = confirm("Press OK if you would like special characters");
             if (specialChoice === true) {
                 typeSelected = typeSelected + 1;
                 pwdChoices.pwdSpecial = true;
                 pwdCharcters += special;
             } else {
-                pwdChoices.pwdNumber = false;
+                pwdChoices.pwdSpecial = false;
             }
 
             if (typeSelected === 0) {
                 alert("You must select at least one type");
                 typeSelected = 0;
-                generatePassword();
+                return;
             }
            
 
@@ -131,13 +133,10 @@
 
         function clipboard() {
              var copyText = document.getElementById('pswd-box');
-                console.log("copy " + copyText);
-                console.log(yourPassword);
                 copyText.select();
                 copyText.setSelectionRange(0, 99999);
                 document.execCommand("copy");
                 alert("Copied the text: " + yourPassword);
-                yourPassword = "";
             }
 
     </script>
