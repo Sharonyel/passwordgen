@@ -15,7 +15,7 @@ List of Files
 
 Screen Shots
 ---
-
+<img src="assets/images/screenshot1.png" width=300>
 
 
 Code Examples
@@ -32,6 +32,11 @@ Follow the promts to determine your password length and the type of characters y
 
 You must enter a lentgh from 8 to 128.
 You can include numbers, uppercase letters, lowercase letters or special characters.  You must select a least one character type.
+
+Your random password will appear in the text box.
+
+If you need to copy your password, click the Copy to Clipboard button.
+
 
 License
 ---
