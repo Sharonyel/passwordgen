@@ -27,6 +27,12 @@ Code Examples
 How To Use:
 ---
 
+Click the Generate Password button.  
+Follow the promts to determine your password length and the type of characters you would like included.
+
+You must enter a lentgh from 8 to 128.
+You can include numbers, uppercase letters, lowercase letters or special characters.  You must select a least one character type.
+
 License
 ---
 
