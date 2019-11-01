@@ -13,13 +13,11 @@
 
 </head>
 
-<body>
-
     <h1 class="text-center text-muted">Password Generator</h1>
 
     <div class="container">
         <div class="row">
-            <h2>Generate a Password<h2>
+            <h2>Generate a Password</h2>
         </div>
         <hr>
         <div class="row">
@@ -31,8 +29,6 @@
             <div class="col-sm-4">
                 <button onclick="generatePassword()" type="button" class="btn btn-info bg-danger d-inline">
                     Generate Password</button>
-                    <div class="col-sm-2"></div>
-
             </div>
             <div class="col-sm-4">
                 <button onclick="clipboard()" type="button" class="btn btn-info bg-secondary d-inline float-right">
@@ -53,19 +49,19 @@
             pwdLower: true,
         }
 
-        function generatePassword() {
-            
+        function generatePassword(){
+
             var pwdCharcters = "";
             lowerCase = "abcdefghijklmnopqrstuvwxyz";
             upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             numeric = "0123456789";
             special = "!@#$%^&*(){,}[]=<>/.";
             yourPassword = "";
-       
-    var typeSelected = 0;
-        
 
-       var lengthChoice = parseInt(prompt("Enter the Character Length"));
+            var typeSelected = 0;
+
+
+            var lengthChoice = parseInt(prompt("Enter the Character Length"));
 
             if (lengthChoice > 7 && lengthChoice < 129) {
                 pwdChoices.pwdLength = lengthChoice;
@@ -75,7 +71,7 @@
                 return;
             }
 
-         var numericChoice = confirm("Press OK if you would like Numbers");
+            var numericChoice = confirm("Press OK if you would like Numbers");
 
             if (numericChoice === true) {
                 typeSelected = typeSelected + 1;
@@ -120,7 +116,7 @@
                 typeSelected = 0;
                 return;
             }
-           
+
 
             for (var i = 0; i < pwdChoices.pwdLength; i++) {
                 var getChar = pwdCharcters[Math.floor(Math.random() * pwdCharcters.length)];
@@ -128,15 +124,15 @@
             }
 
             document.getElementById("pswd-box").innerHTML = yourPassword;
-        
+
         }
 
-        function clipboard() {
-             var copyText = document.getElementById('pswd-box');
-                copyText.select();
-                copyText.setSelectionRange(0, 99999);
-                document.execCommand("copy");
-                alert("Copied the text: " + yourPassword);
-            }
+        function clipboard(){
+            var copyText = document.getElementById('pswd-box');
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Copied the text: " + yourPassword);
+        }
 
     </script>
