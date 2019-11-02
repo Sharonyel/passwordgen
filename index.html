@@ -15,6 +15,9 @@
 
     <h1 class="text-center text-muted">Password Generator</h1>
 
+<!--       ********  Password Box    ****** -->
+
+
     <div class="container">
         <div class="row">
             <h2>Generate a Password</h2>
@@ -49,6 +52,9 @@
             pwdLower: true,
         }
 
+
+//   Move charater set/s selected for the password to an arrry
+
         function generatePassword(){
 
             var pwdCharcters = "";
@@ -60,6 +66,7 @@
 
             var typeSelected = 0;
 
+// Input from the user
 
             var lengthChoice = parseInt(prompt("Enter the Character Length"));
 
@@ -76,7 +83,6 @@
             if (numericChoice === true) {
                 typeSelected = typeSelected + 1;
                 pwdChoices.pwdNumber = true;
-                // pwdCharcters = pwdCharacters + numeric;
                 pwdCharcters += numeric;
 
             } else {
@@ -117,6 +123,7 @@
                 return;
             }
 
+//   Generate random password from selected characters
 
             for (var i = 0; i < pwdChoices.pwdLength; i++) {
                 var getChar = pwdCharcters[Math.floor(Math.random() * pwdCharcters.length)];
@@ -126,6 +133,7 @@
             document.getElementById("pswd-box").innerHTML = yourPassword;
 
         }
+//  Copy password to the clipboard
 
         function clipboard(){
             var copyText = document.getElementById('pswd-box');
