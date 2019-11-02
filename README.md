@@ -21,7 +21,8 @@ Screen Shots
 Code Examples
 ---
 
-<img src="assets/images/screenshot1.png" width=300>
+<img src="assets/images/screenshot3.png" width=300>  <img src="assets/images/screenshot4.png" width=300>
+<img src="assets/images/screenshot4.png" width=300>
 
 
 How To Use:
