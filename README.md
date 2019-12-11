@@ -39,6 +39,10 @@ Your random password will appear in the text box.
 If you need to copy your password, click the Copy to Clipboard button.
 
 
+ Project source can be downloaded from (https://sharonyel.github.io/passwordgen/) 
+ ---
+
+
 License
 ---
 
