@@ -15,14 +15,15 @@ List of Files
 
 Screen Shots
 ---
-<img src="assets/images/screenshot1.png" width=300>
+<img src="assets/images/screenshot1.png" width=700>
 
 
 Code Examples
 ---
 
-<img src="assets/images/screenshot3.png" width=300>  <img src="assets/images/screenshot4.png" width=300>
-<img src="assets/images/screenshot4.png" width=300>
+<img src="assets/images/screenshot3.png" width=700>  
+<img src="assets/images/screenshot4.png" width=700>
+<img src="assets/images/screenshot4.png" width=700>
 
 
 How To Use:
